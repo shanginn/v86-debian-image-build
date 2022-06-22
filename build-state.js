@@ -2,20 +2,13 @@
 "use strict";
 
 const path = require("path");
-
-// TODO:
-// - Timeout
-
-console.log("Don't forget to run `make all` before running this script");
+const fs   = require("fs");
+const V86  = require("./tools/libv86.js").V86;
 
 const imageName = 'debian-small';
+
 const BASE_DIR = path.join(__dirname, ".");
-console.log(BASE_DIR);
-
-let fs = require("fs");
-let V86 = require(BASE_DIR + "/tools/libv86.js").V86;
-
-let OUTPUT_FILE = path.join(BASE_DIR, `images/${imageName}-state-base.bin`);
+const OUTPUT_FILE = path.join(BASE_DIR, `images/${imageName}-state-base.bin`);
 
 process.stdin.setRawMode(true);
 process.stdin.resume();
